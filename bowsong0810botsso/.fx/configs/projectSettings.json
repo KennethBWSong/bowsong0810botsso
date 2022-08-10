@@ -1,0 +1,33 @@
+{
+  "appName": "bowsong0810botsso",
+  "projectId": "c0201725-ddde-4304-a581-cb90540ffd78",
+  "version": "2.1.0",
+  "isFromSample": false,
+  "solutionSettings": {
+    "name": "fx-solution-azure",
+    "version": "1.0.0",
+    "hostType": "Azure",
+    "azureResources": [],
+    "capabilities": [
+      "Bot"
+    ],
+    "activeResourcePlugins": [
+      "fx-resource-identity",
+      "fx-resource-bot",
+      "fx-resource-local-debug",
+      "fx-resource-appstudio",
+      "fx-resource-cicd",
+      "fx-resource-api-connector"
+    ]
+  },
+  "programmingLanguage": "csharp",
+  "pluginSettings": {
+    "fx-resource-bot": {
+      "host-type": "app-service",
+      "capabilities": [
+        "command-response"
+      ]
+    }
+  },
+  "isFirstTimeOpenProject": false
+}
