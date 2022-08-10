@@ -1,11 +1,14 @@
 using bowsong0810botsso;
-using bowsong0810botsso.Commands;
+using bowsong0810botsso.SSO;
 using Microsoft.Bot.Builder.Integration.AspNet.Core;
 using Microsoft.Bot.Connector.Authentication;
-using Microsoft.TeamsFx.Conversation;
 using Microsoft.Bot.Builder;
+using bowsong0810botsso.Commands;
+using Microsoft.TeamsFx.Conversation;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddRazorPages();
 
 builder.Services.AddControllers();
 builder.Services.AddHttpClient("WebClient", client => client.Timeout = TimeSpan.FromSeconds(600));
@@ -18,6 +21,19 @@ builder.Configuration["MicrosoftAppPassword"] = builder.Configuration.GetSection
 
 // Create the Bot Framework Authentication to be used with the Bot Adapter.
 builder.Services.AddSingleton<BotFrameworkAuthentication, ConfigurationBotFrameworkAuthentication>();
+
+// Create the Bot Framework Adapter with error handling enabled.
+builder.Services.AddSingleton<IBotFrameworkHttpAdapter, AdapterWithErrorHandler>();
+
+builder.Services.AddSingleton<IStorage, MemoryStorage>();
+// Create the Conversation state. (Used by the Dialog system itself.)
+builder.Services.AddSingleton<ConversationState>();
+
+// The Dialog that will be run by the bot.
+builder.Services.AddSingleton<MainDialog>();
+
+// Create the bot as a transient. In this case the ASP Controller is expecting an IBot.
+builder.Services.AddTransient<IBot, TeamsSsoBot<MainDialog>>();
 
 // Create the Cloud Adapter with error handling enabled.
 // Note: some classes expect a BotAdapter and some expect a BotFrameworkHttpAdapter, so
@@ -42,8 +58,8 @@ builder.Services.AddSingleton(sp =>
     return new ConversationBot(options);
 });
 
-// Create the bot as a transient. In this case the ASP Controller is expecting an IBot.
-builder.Services.AddTransient<IBot, TeamsBot>();
+// add TeamsFx SDK
+builder.Services.AddTeamsFx(builder.Configuration.GetSection("TeamsFx"));
 
 var app = builder.Build();
 
@@ -57,6 +73,7 @@ app.UseRouting();
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllers();
+    endpoints.MapRazorPages();
 });
 
 app.Run();
