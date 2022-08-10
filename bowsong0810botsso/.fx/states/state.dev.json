@@ -1,3 +1,48 @@
 {
-    "solution": {}
+    "solution": {
+        "teamsAppTenantId": "68a183da-edbf-4d7a-bb06-562717e119ff",
+        "subscriptionId": "1756abc0-3554-4341-8d6a-46674962ea19",
+        "subscriptionName": "Teams Cloud - Dev Test with TTL = 3 Days",
+        "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+        "needCreateResourceGroup": false,
+        "resourceGroupName": "bowsong0810botsso-dev-rg",
+        "location": "eastus",
+        "resourceNameSuffix": "b8d748",
+        "provisionSucceeded": true
+    },
+    "fx-resource-appstudio": {
+        "tenantId": "68a183da-edbf-4d7a-bb06-562717e119ff",
+        "teamsAppId": "7885de0a-c26c-4107-a810-13a9712e2a5a",
+        "teamsAppUpdatedAt": 1660121783173
+    },
+    "fx-resource-identity": {
+        "identityName": "bowsong081devca0776",
+        "identityResourceId": "/subscriptions/1756abc0-3554-4341-8d6a-46674962ea19/resourceGroups/bowsong0810botsso-dev-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/bowsong081devca0776",
+        "identityClientId": "2c440487-f78c-4f7d-a56f-2d37df2040cd"
+    },
+    "fx-resource-bot": {
+        "botId": "183fcedb-062f-4e40-bac2-a5fc22adf89d",
+        "botPassword": "{{fx-resource-bot.botPassword}}",
+        "objectId": "05e41c4c-9788-4842-9e46-dd94cef5f9e0",
+        "skuName": "B1",
+        "siteName": "bowsong081devca0776bot",
+        "validDomain": "bowsong081devca0776bot.azurewebsites.net",
+        "appServicePlanName": "bowsong081devca0776bot",
+        "resourceId": "/subscriptions/1756abc0-3554-4341-8d6a-46674962ea19/resourceGroups/bowsong0810botsso-dev-rg/providers/Microsoft.Web/sites/bowsong081devca0776bot",
+        "siteEndpoint": "https://bowsong081devca0776bot.azurewebsites.net"
+    },
+    "fx-resource-aad-app-for-teams": {
+        "clientId": "a66985fe-665f-4f09-89c5-82d556a11d55",
+        "clientSecret": "{{fx-resource-aad-app-for-teams.clientSecret}}",
+        "objectId": "e0aa19db-54a0-4bdc-a093-ea5512a3f0ae",
+        "oauth2PermissionScopeId": "24a09e57-ac68-4023-8910-d15c26a3ffed",
+        "tenantId": "68a183da-edbf-4d7a-bb06-562717e119ff",
+        "oauthHost": "https://login.microsoftonline.com",
+        "oauthAuthority": "https://login.microsoftonline.com/68a183da-edbf-4d7a-bb06-562717e119ff",
+        "applicationIdUris": "api://botid-183fcedb-062f-4e40-bac2-a5fc22adf89d",
+        "botId": "183fcedb-062f-4e40-bac2-a5fc22adf89d",
+        "botEndpoint": "https://bowsong081devca0776bot.azurewebsites.net"
+    },
+    "fx-resource-cicd": {},
+    "fx-resource-api-connector": {}
 }

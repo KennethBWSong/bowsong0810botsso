@@ -26,8 +26,8 @@ var botId = provisionParameters['botAadAppClientId']
 resource botWebAppSettings 'Microsoft.Web/sites/config@2021-02-01' = {
   name: '${botWebAppName}/appsettings'
   properties: union({
-    TeamsFx__Authentication__InitiateLoginEndpoint: uri(provisionOutputs.webAppOutput.value.siteEndpoint, 'auth-start.html') // The page is used to let users consent required OAuth permissions during bot SSO process
-    TeamsFx__Authentication__OAuthAuthority: m365OauthAuthorityHost // AAD authority host
+    TeamsFx__Authentication__InitiateLoginEndpoint: uri(provisionOutputs.webAppOutput.value.siteEndpoint, 'bot-auth-start.html') // The page is used to let users consent required OAuth permissions during bot SSO process
+    TeamsFx__Authentication__OAuthAuthority: uri(m365OauthAuthorityHost, m365TenantId) // AAD authority host
     TeamsFx__Authentication__ClientId: m365ClientId // Client id of AAD application
     TeamsFx__Authentication__ClientSecret: m365ClientSecret // Client secret of AAD application
     TeamsFx__Authentication__TenantId: m365TenantId // Tenant id of AAD application
