@@ -1,10 +1,10 @@
-﻿{
+{
   "profiles": {
     "Microsoft Teams (browser)": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,
-      "launchUrl": "https://teams.microsoft.com/l/app/%TEAMSAPPID%?installAppPackage=true&webjoin=true&appTenantId=%TENANTID%&login_hint=%USERNAME%",
+      "launchUrl": "https://teams.microsoft.com/l/app/f2ea1d98-27a0-40c1-b843-c53537436079?installAppPackage=true&webjoin=true&appTenantId=68a183da-edbf-4d7a-bb06-562717e119ff&login_hint=bowsong@kenbwsong.onmicrosoft.com",
       "applicationUrl": "http://localhost:5130",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
